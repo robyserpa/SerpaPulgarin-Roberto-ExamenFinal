@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="SerpaPulgarin-Roberto-ExamenFinal">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="SerpaPulgarin-Roberto-ExamenFinal"/>
+        <property name="java-output-path" value="/SerpaPulgarin-Roberto-ExamenFinal/build/classes"/>
+    </wb-module>
+</project-modules>
