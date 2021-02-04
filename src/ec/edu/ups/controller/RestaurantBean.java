@@ -1,6 +1,7 @@
 package ec.edu.ups.controller;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -32,6 +33,8 @@ public class RestaurantBean implements Serializable{
 	private Restaurant restaurant;
 	private List<Restaurant> restaurantList;
 	private List<Reserve> reserves;
+	private String dateS;
+	private Calendar date;
 	
 	public RestaurantBean() {
 		super();
@@ -52,7 +55,19 @@ public class RestaurantBean implements Serializable{
             FacesContext context = FacesContext.getCurrentInstance();
             context.addMessage("msg2", message);
 		}else {
+			List<Reserve> reserves;
 			reserves = restaurant.getReserves();
+			this.reserves = null;
+			for (Reserve reserve : reserves) {
+				if (reserve.getDate().equals(date)) {
+					try {
+						this.reserves.add(reserve);
+					} catch (Exception e) {
+						// TODO: handle exception
+					}
+				}
+			}
+			
 		}
 		cleanString();
 	}
@@ -124,6 +139,30 @@ public class RestaurantBean implements Serializable{
 
 	public void setRestaurantList(List<Restaurant> restaurantList) {
 		this.restaurantList = restaurantList;
+	}
+
+	public List<Reserve> getReserves() {
+		return reserves;
+	}
+
+	public void setReserves(List<Reserve> reserves) {
+		this.reserves = reserves;
+	}
+
+	public String getDateS() {
+		return dateS;
+	}
+
+	public void setDateS(String dateS) {
+		this.dateS = dateS;
+	}
+
+	public Calendar getDate() {
+		return date;
+	}
+
+	public void setDate(Calendar date) {
+		this.date = date;
 	}
 	
 }

@@ -23,8 +23,7 @@
 				<p:messages id="msg1"/>
 				<br/>
 				<span class="ui-float-label">
-					<p:inputText id="dni" value="#{clientBean.dni}" maxlength="10" required="true"
-					validator="#{userBean.validateDNI}"/>
+					<p:inputText id="dni" value="#{clientBean.dni}" maxlength="10" required="true"/>
 					<p:outputLabel for="dni" value="DNI" />
 				</span>
 				<br/>
@@ -48,6 +47,30 @@
 					<p:outputLabel for="phone" value="Telefono" />
 				</span>
 			    <p:commandButton value="Crear" id="save" action="#{clientBean.create()}"
+			    	 style="margin-right:20px;" icon="fa fa-save"/>
+			</h:form>
+		</div>
+		
+		<div>
+			<h:form id="create-res">
+				<h2 style="text-align:center">Crear Restaurante</h2>
+				<p:messages id="msg1"/>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="namer" value="#{restaurantBean.name}" required="true"/>
+					<p:outputLabel for="namer" value="Nombre" />
+				</span>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="addressr" value="#{restaurantBean.address}" required="true"/>
+					<p:outputLabel for="addressr" value="Direccion" />
+				</span>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="phone" value="#{clientBean.phone}" required="true"/>
+					<p:outputLabel for="phone" value="Telefono" />
+				</span>
+			    <p:commandButton value="Crear" id="save" action="#{restaurantBean.create()}"
 			    	 style="margin-right:20px;" icon="fa fa-save"/>
 			</h:form>
 		</div>
