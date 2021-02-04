@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang="es" 
+	xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
+    
+    <h:head>
+		<h:outputStylesheet name="css/primeflex.min.css"/>
+		<h:outputStylesheet name="css/bootstrap/bootstrap.min.css"/>
+		<h:outputStylesheet name="css/default.css"/>
+		<ui:insert name="setCss"></ui:insert>
+        <ui:insert name="setJs"></ui:insert> 
+        <title><ui:insert name="title">Inicio</ui:insert></title>      
+   	</h:head>
+   	
+   	<h:body style="background-color: #FCFCFC">
+	    <div id="body-content">
+		   	<h:form id="create-user">
+				<h2 style="text-align:center">Crear Cliente</h2>
+				<p:messages id="msg1"/>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="dni" value="#{clientBean.dni}" maxlength="10" required="true"
+					validator="#{userBean.validateDNI}"/>
+					<p:outputLabel for="dni" value="DNI" />
+				</span>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="email" value="#{clientBean.email}" required="true"/>
+					<p:outputLabel for="email" value="Email" />
+				</span>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="name" value="#{clientBean.name}" required="true"/>
+					<p:outputLabel for="name" value="Nombre" />
+				</span>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="address" value="#{clientBean.address}" required="true"/>
+					<p:outputLabel for="address" value="Direccion" />
+				</span>
+				<br/>
+				<span class="ui-float-label">
+					<p:inputText id="phone" value="#{clientBean.phone}" required="true"/>
+					<p:outputLabel for="phone" value="Telefono" />
+				</span>
+			    <p:commandButton value="Crear" id="save" action="#{clientBean.create()}"
+			    	 style="margin-right:20px;" icon="fa fa-save"/>
+			</h:form>
+		</div>
+   </h:body>
+</html>
